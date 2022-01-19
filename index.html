@@ -744,6 +744,85 @@
       }
     }
 
+    .news-header .news-header__title--a-biblia, 
+    .news-header .news-header__title--reis, 
+    .news-header .news-header__title--blog {
+      color: #4766ac;
+    }
+    .news-header .news-header__title--coronavirus, 
+    .news-header .news-header__title--brasilia, 
+    .news-header .news-header__title--noticias, 
+    .news-header .news-header__title--monitor7 {
+      color: #556373;
+    }
+    .news-header .news-header__title--virtz {
+      color: #FB345D;
+    }
+    .news-header .news-header__title--entretenimento {
+      color: #F78714;
+    }
+    .news-header .news-header__title--lifestyle {
+      color: #9C5BB9;
+    }
+    .news-header .news-header__title--esportes {
+      color: #599973;
+    }
+    .news-header .news-header__title--hora-7 {
+      color: #44C1AB;
+    }
+    .news-header .news-header__title--playplus {
+      color: #A15694;
+    }
+    .news-header .news-header__title--the-love-school {
+      color: #DD8FA7;
+    }
+    .news-header .news-header__title--especiais {
+      color: #7E8288;
+    }
+    .news-header .news-header__title--ultimas {
+      color: #218EE1;
+    }
+
+
+    .news-header.news-header--a-biblia::after, 
+    .news-header.news-header--reis::after, 
+    .news-header.news-header--blog::after {
+      background-color: #4766ac;
+    }
+    .news-header.news-header--coronavirus::after, 
+    .news-header.news-header--brasilia::after, 
+    .news-header.news-header--noticias::after, 
+    .news-header.news-header--monitor7::after {
+      background-color: #556373;
+    }
+    .news-header.news-header--virtz::after {
+      background-color: #FB345D;
+    }
+    .news-header.news-header--entretenimento::after {
+      background-color: #F78714;
+    }
+    .news-header.news-header--lifestyle::after {
+      background-color: #9C5BB9;
+    }
+    .news-header.news-header--esportes::after {
+      background-color: #599973;
+    }
+    .news-header.news-header--hora-7::after {
+      background-color: #44C1AB;
+    }
+    .news-header.news-header--playplus::after {
+      background-color: #A15694;
+    }
+    .news-header.news-header--the-love-school::after {
+      background-color: #DD8FA7;
+    }
+    .news-header.news-header--especiais::after {
+      background-color: #7E8288;
+    }
+    .news-header.news-header--ultimas::after {
+      background-color: #218EE1;
+    }
+
   
     /* lista relacionadas */
     .related__list {
@@ -1185,9 +1264,15 @@
     }
 
     const getHeaderTemplate = (nome) => {
+      const headerName = nome
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/\s/, "-")
+        .replace(/[^\-a-zA-Zs]/g, "")
+
       return `
-        <div class="news-header">
-          <h2 class="news-header__title">${nome}</h2>
+        <div class="news-header news-header--${headerName}">
+          <h2 class="news-header__title news-header__title--${headerName}">${nome}</h2>
         </div>
       `
     }
